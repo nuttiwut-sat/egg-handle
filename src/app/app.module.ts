@@ -27,6 +27,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { BarChartComponent } from './components/chart/bar-chart/bar-chart.component';
+import { LoginWithLineComponent } from './pages/auth/login-with-line/login-with-line.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BarChartComponent } from './components/chart/bar-chart/bar-chart.compon
     SiteLayoutComponent,
     DashboardComponent,
     BarChartComponent,
+    LoginWithLineComponent,
   ],
   imports: [
     BrowserModule,
