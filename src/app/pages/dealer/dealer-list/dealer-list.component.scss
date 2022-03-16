@@ -1,0 +1,37 @@
+.content {
+  padding: 0 10px;
+}
+.card-dealer {
+  float: left;
+  width: 45vw;
+  margin: 2.5vw;
+}
+mat-card-header {
+  width: 100%;
+}
+mat-card-title {
+  width: 100%;
+  text-align: center;
+}
+.badge-card {
+  border-radius: 50px;
+  background-color: rgb(74, 189, 52);
+  height: 20px;
+  padding: 2px 4px;
+  color: #fff;
+  width: auto;
+  float: right;
+}
+.img-profile {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin: 10px 27%;
+}
+mat-card-content p {
+  text-align: center;
+  color: #666;
+}
+.btn-card {
+  width: 100%;
+}

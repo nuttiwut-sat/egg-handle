@@ -1,0 +1,112 @@
+.example-container {
+  height: 100%;
+}
+.nav-header {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+}
+.content-app {
+  margin: 70px 0;
+  position: fixed;
+  width: 100%;
+}
+.example-sidenav {
+  width: 200px;
+  padding: 20px 0;
+  position: absolute;
+
+  h1 {
+    padding: 0 30px;
+  }
+}
+.wrap-over {
+  background-color: rgba($color: #000000, $alpha: 0.3);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+}
+
+.nav-header-left {
+  flex: 1;
+}
+.nav-header-center {
+  flex: 1;
+  align-items: center;
+}
+.nav-header-right {
+  flex: 1;
+  display: flex;
+  align-items: end;
+
+  button {
+    margin-left: auto;
+    width: 50px;
+  }
+}
+
+.pending-card {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 20px;
+  height: 40px;
+}
+.mat-card-subtitle {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.mat-spinner {
+  width: 20px;
+  margin-right: 10px;
+}
+.text-pending {
+  flex: auto;
+}
+.nav-btn-slide {
+  width: 100%;
+  text-align: left;
+  border-radius: 0;
+}
+
+// tree
+mat-tree {
+  padding: 0 20px;
+}
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+/*
+ * This padding sets alignment of the nested nodes.
+ */
+.example-tree .mat-nested-tree-node div[role="group"] {
+  padding-left: 40px;
+}
+
+/*
+ * Padding for leaf nodes.
+ * Leaf nodes need to have padding so as to align with other non-leaf nodes
+ * under the same parent.
+ */
+.example-tree div[role="group"] > .mat-tree-node {
+  padding-left: 40px;
+}
+.btn-logout{
+  padding: 15px 20px;
+    border-top: 1px solid #999;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,0 +1,56 @@
+.header {
+  height: 50px;
+  padding: 0 15px;
+}
+.header span {
+  font-size: 24px;
+  font-weight: 800;
+}
+.content {
+  padding: 0 10px;
+  height: 90vh;
+}
+.scroll-content {
+  height: 100%;
+  overflow-y: scroll;
+}
+.card-dealer {
+  float: left;
+  width: 38vw;
+  margin: 1vw;
+}
+mat-card-header {
+  width: 100%;
+}
+mat-card-title {
+  width: 100%;
+  text-align: center;
+}
+.badge-card {
+  border-radius: 50px;
+  background-color: rgb(74, 189, 52);
+  height: 20px;
+  padding: 2px 4px;
+  color: #fff;
+  width: auto;
+  float: right;
+}
+.img-profile {
+  margin-top: 10px;
+}
+mat-card-content p {
+  text-align: center;
+  color: #666;
+}
+.btn-card {
+  width: 100%;
+}
+.mat-card-actions {
+  padding: 0;
+}
+h4 {
+  text-align: center;
+}
+.add-btn {
+  float: right;
+}

@@ -1,0 +1,38 @@
+<div class="wrap-content">
+  <h1>เพิ่มสินค้า</h1>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>ชื่อ</mat-label>
+      <input matInput placeholder="" [(ngModel)]="name">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <img [src]="imgPreviewSelector || ''" width="25%" alt="">
+    <input type="file" placeholder="Image" (change)="setPreviewImageSelector($event)">
+  </p>
+  <p>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>ประเภท</mat-label>
+      <mat-select [formControl]="typeProduct" required>
+        <input style="position: fixed;height: 80px;" matInput>
+        <mat-option *ngFor="let type of typeSelector" [value]="type.value">{{type.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>ต้นทุน</mat-label>
+      <input type="number" matInput placeholder="0" [(ngModel)]="cost" oninput="this.value = Math.abs(this.value)">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>ราคา</mat-label>
+      <input type="number" matInput placeholder="0" [(ngModel)]="price" oninput="this.value = Math.abs(this.value)">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </p>
+  <button style="float: right;" mat-raised-button color="primary" (click)="onSubmit()">ยืนยัน</button>
+</div>

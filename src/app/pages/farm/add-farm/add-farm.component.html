@@ -1,0 +1,11 @@
+<div class="wrap-content">
+  <h1>เพิ่มฟาร์ม</h1>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>ชื่อ</mat-label>
+      <input matInput placeholder="" [(ngModel)]="name">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </p>
+  <button style="float: right;" mat-raised-button color="primary" (click)="onSubmit()">ยืนยัน</button>
+</div>

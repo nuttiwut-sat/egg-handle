@@ -1,0 +1,22 @@
+.example-form-field {
+  width: 100vw;
+  position: fixed;
+  top: 55px;
+  z-index: 5;
+  background-color: #fff;
+}
+.content {
+  position: relative;
+  top: 62px;
+  z-index: 4;
+}
+table {
+  width: 100%;
+}
+.add-btn {
+  float: right;
+  margin-right: 20px;
+}
+.name{
+  width: 50vw;
+}

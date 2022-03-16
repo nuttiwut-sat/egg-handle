@@ -1,0 +1,30 @@
+<div class="header">
+  <span>ไข่ไก่</span>
+  <button routerLink="/product/new" mat-raised-button color="primary" class="add-btn">+ Add</button>
+</div>
+<div class="content">
+  <div class="scroll-content">
+    <mat-card class="card-dealer" *ngFor="let product of products">
+      <div class="badge-card">1 วันที่ผ่านมา</div>
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+      </mat-card-header>
+      <img class="img-profile" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <p>{{product.stockAmount}} แผง</p>
+        <h4>{{product.price}} บาท</h4>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" class="btn-card">เปลี่ยนราคาไข่</button>
+      </mat-card-actions>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" class="btn-card">แก้ไขจำนวนไข่</button>
+      </mat-card-actions>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" class="btn-card">วันหมดอายุ</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

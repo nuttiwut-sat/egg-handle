@@ -1,0 +1,34 @@
+<mat-form-field class="example-form-field" appearance="fill">
+  <mat-label>Search</mat-label>
+  <input matInput type="text" [(ngModel)]="searchText" (ngModelChange)="filterFarm()">
+  <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText='';filterFarm()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<div class="content">
+  <button routerLink="new" mat-raised-button color="primary" class="add-btn">+ Add</button>
+  <table mat-table [dataSource]=" filterFarms">
+    <!-- <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> # </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="name">
+      <th class="name" mat-header-cell *matHeaderCellDef> Name </th>
+      <td class="name" mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="updatedAt">
+      <th mat-header-cell *matHeaderCellDef> Update at </th>
+      <td mat-cell *matCellDef="let element"> {{element.updatedAt}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef> Created at </th>
+      <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row.id)"></tr>
+  </table>
+</div>

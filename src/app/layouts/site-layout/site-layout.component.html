@@ -1,0 +1,84 @@
+<app-loading-screen *ngIf="isLoading"></app-loading-screen>
+<mat-drawer-container class="example-container" autosize>
+    <div *ngIf="isMenu" class="wrap-over" (click)="drawer.toggle();openMenu()"></div>
+    <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
+        <h1>Menu</h1>
+        <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+        <button (click)="showFiller = !showFiller" mat-raised-button>
+          Toggle extra text
+        </button>
+        <mat-divider inset vertical></mat-divider> -->
+
+
+        <mat-divider></mat-divider>
+
+        <mat-selection-list #menu [multiple]="false">
+            <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/farm">
+                <button mat-icon-button class="nav-btn-slide">
+          <mat-icon>account_circle</mat-icon> Farm
+        </button>
+            </mat-list-option>
+
+            <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/dealer">
+                <button mat-icon-button class="nav-btn-slide">
+          <mat-icon>account_circle</mat-icon> ตัวแทนจำหน่าย
+        </button>
+            </mat-list-option>
+
+            <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/user">
+                <button mat-icon-button class="nav-btn-slide">
+          <mat-icon>people</mat-icon> User
+        </button>
+            </mat-list-option>
+
+            <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/vote">
+                <button mat-icon-button class="nav-btn-slide">
+          <mat-icon>ballot</mat-icon> Vote
+        </button>
+            </mat-list-option>
+
+            <mat-list-option *ngIf="isManager" (click)="drawer.toggle();openMenu()" routerLink="/vote/manager">
+                <button mat-icon-button class="nav-btn-slide">
+          <mat-icon>ballot</mat-icon> Vote manager
+        </button>
+            </mat-list-option>
+
+            <mat-list-option (click)="logout()">
+                <button mat-icon-button class="nav-btn-slide">
+          <mat-icon>logout</mat-icon> Logout
+        </button>
+            </mat-list-option>
+        </mat-selection-list>
+
+
+
+
+        <div class="btn-logout" (click)="logout()">
+            ออกจากระบบ
+        </div>
+    </mat-drawer>
+
+    <mat-toolbar class="nav-header">
+
+        <div class="nav-header-left">
+            <button *ngIf="!isMainPage" mat-icon-button class="example-icon" (click)="gotoback()" aria-label="Example icon-button with share icon">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+        </div>
+
+        <div class="nav-header-center">
+            <span>Egg Handle</span>
+        </div>
+        <div class="nav-header-right">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle();openMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+        </div>
+
+    </mat-toolbar>
+
+    <!-- Children -->
+    <div class="content-app">
+        <router-outlet></router-outlet>
+    </div>
+</mat-drawer-container>
