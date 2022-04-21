@@ -1,56 +1,97 @@
-.header {
-  height: 50px;
-  padding: 0 15px;
-}
-.header span {
-  font-size: 24px;
-  font-weight: 800;
-}
 .content {
-  padding: 0 10px;
-  height: 90vh;
+    padding: 0 10px;
+    height: 90vh;
+    width: 100%;
 }
+
 .scroll-content {
-  height: 100%;
-  overflow-y: scroll;
+    height: 100%;
+    overflow-y: scroll;
 }
+
 .card-dealer {
-  float: left;
-  width: 38vw;
-  margin: 1vw;
+    float: left;
+    width: 38vw;
+    margin: 1vw;
 }
+
 mat-card-header {
-  width: 100%;
+    width: 100%;
 }
+
 mat-card-title {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
+
 .badge-card {
-  border-radius: 50px;
-  background-color: rgb(74, 189, 52);
-  height: 20px;
-  padding: 2px 4px;
-  color: #fff;
-  width: auto;
-  float: right;
+    border-radius: 50px;
+    background-color: rgb(74, 189, 52);
+    height: 20px;
+    padding: 2px 4px;
+    color: #fff;
+    width: auto;
+    float: right;
 }
+
 .img-profile {
-  margin-top: 10px;
+    margin-top: 10px;
 }
+
 mat-card-content p {
-  text-align: center;
-  color: #666;
+    text-align: center;
+    color: #666;
 }
+
 .btn-card {
-  width: 100%;
+    width: 100%;
 }
+
 .mat-card-actions {
-  padding: 0;
+    padding: 0;
 }
+
 h4 {
-  text-align: center;
+    text-align: center;
 }
+
 .add-btn {
-  float: right;
+    float: right;
+}
+
+// manager
+.header {
+    width: 100vw;
+    position: fixed;
+    top: 55px;
+    z-index: 5;
+    background-color: #fff;
+}
+
+// .header {
+//     height: 50px;
+//     padding: 0 15px;
+// }
+.header span {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.content {
+    position: relative;
+    top: 62px;
+    z-index: 4;
+}
+
+table {
+    width: 100%;
+}
+
+.add-btn {
+    float: right;
+    margin-right: 20px;
+}
+
+.name {
+    width: 50vw;
 }

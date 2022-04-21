@@ -13,34 +13,40 @@
         <mat-divider></mat-divider>
 
         <mat-selection-list #menu [multiple]="false">
-            <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/farm">
+
+            <!-- Admin -->
+            <mat-list-option *ngIf="isManager" (click)="drawer.toggle();openMenu()" routerLink="/dashboard">
                 <button mat-icon-button class="nav-btn-slide">
-          <mat-icon>account_circle</mat-icon> Farm
-        </button>
+                    <mat-icon>account_circle</mat-icon> ภาพรวม
+                </button>
+            </mat-list-option>
+            <mat-list-option *ngIf="isManager" (click)="drawer.toggle();openMenu()" routerLink="/farm">
+                <button mat-icon-button class="nav-btn-slide">
+                    <mat-icon>account_circle</mat-icon> ฟาร์ม
+                </button>
+            </mat-list-option>
+            <mat-list-option *ngIf="isManager" (click)="drawer.toggle();openMenu()" routerLink="/product">
+                <button mat-icon-button class="nav-btn-slide">
+                    <mat-icon>people</mat-icon> สินค้า
+                </button>
             </mat-list-option>
 
-            <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/dealer">
+            <mat-list-option *ngIf="isManager" (click)="drawer.toggle();openMenu()" routerLink="/customer">
                 <button mat-icon-button class="nav-btn-slide">
-          <mat-icon>account_circle</mat-icon> ตัวแทนจำหน่าย
-        </button>
+                    <mat-icon>account_circle</mat-icon> รายชื่อลูกค้า
+                </button>
             </mat-list-option>
 
-            <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/user">
+            <!-- Customer -->
+            <mat-list-option *ngIf="!isManager" (click)="drawer.toggle();openMenu()" routerLink="/product">
                 <button mat-icon-button class="nav-btn-slide">
-          <mat-icon>people</mat-icon> User
-        </button>
+                    <mat-icon>people</mat-icon> สินค้า
+                </button>
             </mat-list-option>
-
-            <mat-list-option (click)="drawer.toggle();openMenu()" routerLink="/vote">
+            <mat-list-option *ngIf="!isManager" (click)="drawer.toggle();openMenu()" routerLink="/order">
                 <button mat-icon-button class="nav-btn-slide">
-          <mat-icon>ballot</mat-icon> Vote
-        </button>
-            </mat-list-option>
-
-            <mat-list-option *ngIf="isManager" (click)="drawer.toggle();openMenu()" routerLink="/vote/manager">
-                <button mat-icon-button class="nav-btn-slide">
-          <mat-icon>ballot</mat-icon> Vote manager
-        </button>
+                    <mat-icon>people</mat-icon> รายการสั่งซื้อ
+                </button>
             </mat-list-option>
 
             <mat-list-option (click)="logout()">

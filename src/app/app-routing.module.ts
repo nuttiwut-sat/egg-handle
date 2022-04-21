@@ -1,3 +1,4 @@
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
@@ -7,13 +8,17 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuardGuard } from './services/auth-guard.guard';
 
 const routes: Routes = [
-  // {
-  //   path: 'login',
-  //   component: LoginComponent,
-  // },
   {
     path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'line-data',
     component: LoginWithLineComponent,
+  },
+  {
+    path: 'backoffice',
+    component: LoginComponent
   },
   {
     path: '',
@@ -60,7 +65,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }

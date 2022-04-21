@@ -7,7 +7,7 @@ import { ProductPanelComponent } from './product-panel/product-panel.component';
 
 const routes: Routes = [
   {
-    path: 'egg',
+    path: '',
     component: ProductEggComponent,
   },
   {

@@ -43,7 +43,7 @@ export class SiteLayoutComponent implements OnInit, OnDestroy {
       });
     this.auth.user$.pipe(takeUntil(this.unsubscribeAll)).subscribe((user) => {
       this.localUserId = user?.id || '';
-      // this.isManager = user?.role?.name === (role.ADMIN || role.MANAGER);
+      this.isManager = user?.role === 'ADMIN';
     });
     this.pageService.isMainpage$
       .pipe(takeUntil(this.unsubscribeAll))

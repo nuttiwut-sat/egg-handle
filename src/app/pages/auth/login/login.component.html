@@ -1,26 +1,28 @@
 <app-loading-screen *ngIf="isLoading"></app-loading-screen>
 <div class="login">
-  <div class="wrap">
-    <h1>BackOffice</h1>
-    <p>
-      <mat-form-field appearance="legacy">
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Placeholder" [(ngModel)]="username" (keyup.enter)="setFocus('password')">
-        <mat-icon matSuffix>account_circle</mat-icon>
-        <!-- <mat-hint>Hint</mat-hint> -->
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="legacy">
-        <mat-label>Password</mat-label>
-        <input id="password" matInput placeholder="Placeholder" type="password" [(ngModel)]="password"
-          (keyup.enter)="login()">
-        <mat-icon matSuffix>vpn_key</mat-icon>
-        <!-- <mat-hint><a routerLink="/forgot-password" routerLinkActive="active">Forget password? </a></mat-hint> -->
-      </mat-form-field>
-    </p>
-    <mat-checkbox class="example-margin" [(ngModel)]="isRemember">Remember</mat-checkbox>
-    <button mat-flat-button color="primary" (click)="login()">Login</button>
-    <!-- <a routerLink="/register" routerLinkActive="active">Register </a> -->
-  </div>
+    <div class="wrap">
+        <h1>BackOffice</h1>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="username" (keyup.enter)="setFocus('password')">
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Password</mat-label>
+                <input id="password" matInput placeholder="Placeholder" type="password" [(ngModel)]="password" (keyup.enter)="login()">
+                <mat-icon matSuffix>vpn_key</mat-icon>
+                <!-- <mat-hint><a routerLink="/forgot-password" routerLinkActive="active">Forget password? </a></mat-hint> -->
+            </mat-form-field>
+        </p>
+        <mat-checkbox class="example-margin" [(ngModel)]="isRemember">Remember</mat-checkbox>
+        <button mat-flat-button color="primary" (click)="login()">Login</button>
+        <hr>
+
+        <button mat-flat-button color="primary" style="background-color: rgb(5, 194, 5);" (click)="customerLoginWithLine()">Login With Line</button>
+        <!-- <a routerLink="/register" routerLinkActive="active">Register </a> -->
+    </div>
 </div>

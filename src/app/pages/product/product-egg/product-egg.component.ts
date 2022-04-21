@@ -24,12 +24,24 @@ export class ProductEggComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private crud: CrudService,
+    private auth: AuthorizeService,
     private pageService: PageControllerService
-  ) {}
+  ) { }
 
   public products: IProduct[] = [];
+  public isManager = false;
 
-  ngOnInit(): void {
+  // manager
+
+  public searchText: string = '';
+  public farms: IProduct[] = [];
+  public filterI: IProduct[] = [];
+  public displayedColumns: string[] = ['name', 'updatedAt', 'createdAt'];
+
+  async ngOnInit(): Promise<void> {
+    this.auth.user$.pipe(takeUntil(this.unsubscribeAll)).subscribe((user) => {
+      this.isManager = user?.role === 'ADMIN';
+    })
     this.pageService.isMainpage$.next(true);
     this.crud
       .get<IProduct[]>(`/product`)
@@ -64,5 +76,24 @@ export class ProductEggComponent implements OnInit, OnDestroy {
           this.pageService.isLoading$.next(false);
         }
       );
+  }
+
+  filter(): void {
+    if (this.farms.length > 0) {
+      this.filterI = this.farms
+        .filter((farm) => {
+          const search = this.searchText.toLowerCase();
+          return (
+            farm.name?.toLowerCase().includes(search)
+          );
+        })
+        .map((farm) => {
+          return farm;
+        });
+    }
+  }
+
+  getRecord(id: string): void {
+    // this.router.navigate([`farm/profile/${id}`]);
   }
 }

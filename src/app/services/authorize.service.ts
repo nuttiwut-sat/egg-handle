@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { CrudService, T } from './crud.service';
-import { IEmployee } from '../models/employee.model';
+import { IUser } from '../models/employee.model';
 import { PageControllerService } from './page-controller.service';
 import { catchError, map } from 'rxjs/operators';
 
@@ -13,31 +13,31 @@ export class AuthorizeService {
     false
   );
 
-  public user$: BehaviorSubject<IEmployee | null> =
-    new BehaviorSubject<IEmployee | null>(null);
+  public user$: BehaviorSubject<IUser | null> =
+    new BehaviorSubject<IUser | null>(null);
   farm$: any;
 
   constructor(
     private crudService: CrudService,
     private pageService: PageControllerService
-  ) {}
+  ) { }
 
-  public login(username: string, password: string): Observable<IEmployee> {
+  public login(username: string, password: string): Observable<IUser> {
     this.pageService.isLoading$.next(true);
     return this.crudService
-      .post<IEmployee>('/auth/login', {
+      .post<IUser>('/auth/login', {
         username: username,
         password: password,
       })
       .pipe(
-        map((res: IEmployee) => {
+        map((res: IUser) => {
           if (res.accessToken) {
             this.setToken(res.accessToken);
           }
           this.user$.next(res);
 
           this.pageService.isLoading$.next(false);
-          return res as IEmployee;
+          return res as IUser;
         }),
         catchError((error) => {
           this.pageService.isLoading$.next(false);
@@ -56,7 +56,7 @@ export class AuthorizeService {
     long: number
   ): any {
     this.pageService.isLoading$.next(true);
-    return this.crudService.post<IEmployee>('/auth/register', {
+    return this.crudService.post<IUser>('/auth/register', {
       email: email,
       username: username,
       name: name,
@@ -73,16 +73,16 @@ export class AuthorizeService {
     this.user$.next(null);
   }
 
-  public getUserByToken(): Observable<IEmployee> {
+  public getUserByToken(): Observable<IUser> {
     this.pageService.isLoading$.next(true);
-    return this.crudService.post<IEmployee>('/auth/get-user-by-token').pipe(
-      map((res: IEmployee) => {
+    return this.crudService.post<IUser>('/auth/get-user-by-token').pipe(
+      map((res: IUser) => {
         if (res.accessToken) {
           this.setToken(res.accessToken);
         }
         this.user$.next(res);
         this.pageService.isLoading$.next(false);
-        return res as IEmployee;
+        return res as IUser;
       }),
       catchError((error) => {
         this.pageService.isLoading$.next(false);

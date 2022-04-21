@@ -67,8 +67,8 @@ import { LoginWithLineComponent } from './pages/auth/login-with-line/login-with-
       useClass: TokenInterceptor,
       multi: true,
     },
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
